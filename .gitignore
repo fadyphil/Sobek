@@ -1,0 +1,73 @@
+# ── Miscellaneous ─────────────────────────────────────────────────────────────
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.svn/
+
+# ── IntelliJ / Android Studio ─────────────────────────────────────────────────
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# ── VS Code ───────────────────────────────────────────────────────────────────
+# Uncommented — personal workspace settings should not be in the repo.
+# If you later add shared launch configs you want tracked, re-comment this.
+.vscode/
+
+# ── Flutter / Dart / Pub ──────────────────────────────────────────────────────
+# All paths prefixed with app/ because Flutter project is not at repo root.
+# Without the prefix, these patterns resolve to sobek/build/, sobek/.dart_tool/
+# etc. — which don't exist. They would silently ignore nothing.
+
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/.pub-cache/
+app/.pub/
+app/build/
+app/coverage/
+app/.swiftpm/
+app/migrate_working_dir/
+app/.buildlog/
+
+# iOS specific
+app/ios/Flutter/.last_build_id
+
+# Android build outputs
+app/android/app/debug/
+app/android/app/profile/
+app/android/app/release/
+
+# Android local SDK path — machine-specific, never commit
+app/android/local.properties
+
+# Generated API docs
+app/**/doc/api/
+
+# Symbolication and obfuscation maps
+app.*.symbols
+app.*.map.json
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+
+# ── Jupyter / Colab ───────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── ML model files (too large for git) ────────────────────────────────────────
+# The trained model artifacts will be distributed via Google Drive / HF Hub.
+# Never commit these — a GGUF alone is 300MB+.
+*.gguf
+*.safetensors
+*.bin
+ml/models/
+
+# ── Do NOT ignore ─────────────────────────────────────────────────────────────
+# ml/data/dataset.jsonl  → this is source data, track it
+# ml/data/batches/       → same
+# docs/                  → all docs tracked
