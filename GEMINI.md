@@ -25,51 +25,27 @@ Project Sobek is an end-to-end machine learning engineering journey to build an 
 ## 📁 Project Structure
 
 - `app/`: Flutter application codebase.
-  - `lib/main.dart`: Main entry point and likely Dart FFI integration logic.
+  - `lib/features/`: Feature-driven UI and state logic.
+  - `test/`: Widget and unit tests.
 - `ml/`: Machine learning assets and scripts.
-  - `data/`: Training datasets (`.jsonl` files) organized by batches.
-  - `data/validate_dataset.py`: Python script to enforce schema and value constraints.
-  - `training/`: (Reserved for training scripts and checkpoints).
-- `docs/`: Comprehensive project documentation and phased roadmap.
-  - `00-concept.md`: Conceptual grounding of the ML choices.
-  - `plan/`: Detailed multi-phase implementation plan.
+  - `data/`: Training datasets and validation scripts.
+  - `eval/`: Evaluation harness for model intelligence.
+  - `tests/`: Tests for ML data pipeline.
+- `docs/`: Comprehensive project documentation.
+  - `adr/`: Architecture Decision Records.
+  - `plan/`: Phased implementation roadmap.
 
-## 🛠️ Key Commands & Workflow
+## 🧠 Agentic Mandates
 
-### ML Data Validation
-
-Validate new training batches before inclusion in the master dataset:
-
-```bash
-python ml/data/validate_dataset.py ml/data/batches/batch-XX/batch-XX.jsonl
-```
-
-### Flutter Development
-
-Standard Flutter commands apply within the `app/` directory:
-
-```bash
-cd app
-flutter pub get
-flutter run
-flutter test
-```
-
-### Road-map (Phases)
-
-Project progress is tracked via phases in `docs/plan/`:
-
-- **Phase 0:** Conceptual Grounding (Complete)
-- **Phase 1:** Training Data Generation
-- **Phase 2:** Environment Setup
-- **Phase 3:** Fine-Tuning
-- **Phase 4:** Export & Local Inference
-- **Phase 5:** Flutter Integration
+- **Skill Activation:** ALWAYS check `activate_skill` for tasks related to Flutter, Clean Code, Git Hooks, or Documentation. Never proceed without relevant expert guidance if a skill exists.
+- **Parallel Orchestration:** Utilize `invoke_agent` (Generalist/Investigator) for independent batch tasks or deep research to maintain context efficiency.
+- **Surgical Precision:** Every code change must be minimal and strictly scoped. Never refactor unrelated code. Use `replace` over `write_file` for existing large files.
 
 ## 📜 Development Conventions
 
-- **Surgical Edits:** When modifying the Flutter app, ensure minimal changes that align with existing styles.
+- **Surgical Edits:** Minimum changes that align with existing styles.
 - **Mounted Checks:** Always check `if (!mounted)` after `await` in `StatefulWidget` methods.
-- **Immutability:** Prefer `final` properties and `const` constructors where possible.
-- **ML Schema Integrity:** Never change the 5-field schema without updating the `validate_dataset.py` script and the fine-tuning prompt template.
-- **Testing:** Add or update tests in `app/test/` for every feature change.
+- **Immutability:** Mandatory `final` properties and `const` constructors. Use `sealed class` for state.
+- **ML Schema Integrity:** Never change the 5-field schema without updating `validate_dataset.py` and prompt templates.
+- **Testing:** Add or update tests in `app/test/` or `ml/tests/` for every change.
+- **Documentation:** Every feature or architectural change must be reflected in `CHANGELOG.md` and relevant `docs/`.
