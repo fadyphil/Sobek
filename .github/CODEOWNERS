@@ -1,0 +1,15 @@
+# Sobek Monorepo Codeowners
+
+# ML Ownership
+
+/ml/ @yourusername
+
+# App Ownership
+
+/app/ @yourusername
+
+# Root / Documentation
+
+/docs/ @yourusername
+/ README.md @yourusername
+/ CONTRIBUTING.md @yourusername

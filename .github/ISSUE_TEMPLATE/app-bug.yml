@@ -1,0 +1,35 @@
+name: 📱 App Bug Report
+description: Report a problem with the Flutter application or FFI integration.
+labels: ["app", "bug"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: App Component
+      options:
+        - UI / Flutter
+        - Dart FFI / llama.cpp
+        - Background Isolate
+        - Local Storage
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: 1. Open app... 2. Type...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+  - type: textarea
+    id: logs
+    attributes:
+      label: Flutter Logs
+      render: shell

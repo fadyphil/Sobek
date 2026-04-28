@@ -1,0 +1,36 @@
+name: 🧪 ML/Dataset Bug Report
+description: Report a problem with the training data, validation script, or training pipeline.
+labels: ["ml", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an ML issue! Please provide details to help us fix it.
+  - type: dropdown
+    id: component
+    attributes:
+      label: ML Component
+      options:
+        - Dataset (jsonl)
+        - Validation Script (validate_dataset.py)
+        - Training Pipeline
+        - Model Export
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      placeholder: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: batch
+    attributes:
+      label: Relevant Batch
+      placeholder: e.g. ml/data/batches/batch-05/
+  - type: textarea
+    id: error
+    attributes:
+      label: Error Message / Validation Output
+      render: shell

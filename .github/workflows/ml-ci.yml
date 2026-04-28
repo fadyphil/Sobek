@@ -1,0 +1,39 @@
+name: ML CI
+
+on:
+  push:
+    branches: [ main, "phase/**" ]
+    paths:
+      - 'ml/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'ml/**'
+
+jobs:
+  validate-dataset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f ml/data/requirements.txt ]; then pip install -r ml/data/requirements.txt; fi
+
+      - name: Validate Datasets
+        run: |
+          # Validate the master dataset
+          if [ -f ml/data/dataset.jsonl ]; then python ml/data/validate_dataset.py ml/data/dataset.jsonl; fi
+          # Validate all individual batches
+          for batch in ml/data/batches/*/*.jsonl; do
+            if [ -f "$batch" ]; then
+              echo "Validating $batch..."
+              python ml/data/validate_dataset.py "$batch"
+            fi
+          done
